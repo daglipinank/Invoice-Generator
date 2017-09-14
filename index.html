@@ -5,33 +5,274 @@
 	<link class="linkStyle" rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>Title</title>
+	<title>Pinank Chemicals Invoice Generator</title>
 </head>
 <body id="body">
 	<div class="container">
-		<div class="row">
+		<div id="InvoiceFormdiv" class="row">
+			<h3>Pinank Chemicals Invoice Generator</h3>
+			<div class="col-xs-10 col-xs-offset-1">
+				<form class="form" action="" id="InvoiceForm">
+					<div class="input-group">
+					  <span class="input-group-addon">Tax Invoice Number</span>
+					  <input type="text" id="taxInvoiceNumber" class="form-control" placeholder="Tax Invoice Number">
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon">Tax Invoice Date</span>
+						<input type="date" id="taxInvoiceDate" class="form-control">
+					</div>
+					<div class="input-group">
+					  <span class="input-group-addon">Order Number</span>
+					  <input type="text" id="orderNumber" class="form-control" placeholder="Order Number">
+					</div>
+					<div class="input-group">
+					  <span class="input-group-addon">Order Date</span>
+					  <input type="date" id="orderDate" class="form-control" placeholder="Order Date">
+					</div>
+					<div class="input-group">
+					  <span class="input-group-addon">Transporter</span>
+					  <input type="text" id="transporterName" class="form-control" placeholder="Transporter">
+					</div>
+					<div class="input-group">
+					  <span class="input-group-addon">Vehicle No.</span>
+					  <input type="text" id="vehicleNumber" class="form-control" placeholder="Vehicle Number">
+					</div>
+					<div class="input-group">
+					  <span class="input-group-addon">L.R. No.</span>
+					  <input type="text" id="LRNumber" class="form-control" placeholder="Order Date">
+					</div>
+					<div class="input-group">
+					  <span class="input-group-addon">Place of Supply</span>
+					  <input type="text" id="placeOfSupply" class="form-control" placeholder="Place of Supply">
+					</div>
+					<div class="input-group">
+					  <span class="input-group-addon">Time of Supply</span>
+					  <input type="time" id="timeOfSupply" class="form-control" placeholder="Time of Supply">
+					</div>
+					<div class="input-group">
+					  <span class="input-group-addon">Company</span>
+					  <select name="CompanyList" id="CompanyList" class="form-control"></select>
+					</div>
+					<div class="col-xs-12 text-center">
+						<div class="col-xs-4">
+							<input type="checkbox" name="cgst" id="cgst">
+							<label for="cgst">CGST</label>
+						</div>
+						<div class="col-xs-4">
+							<input type="checkbox" name="sgst" id="sgst">
+							<label for="sgst">SGST</label>
+						</div>
+						<div class="col-xs-4">
+							<input type="checkbox" name="igst" id="igst">
+							<label for="igst">IGST</label>
+						</div>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon">Product Name</span>
+					  	<select class="form-control" id="ProductList"></select>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon">Product Quantity</span>
+					  	<input type="text" id="ProductQuantity" class="form-control" placeholder="Product Quantity">
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon">Product Rate</span>
+					  	<input type="text" id="ProductRate" class="form-control" placeholder="Product Rate">
+					</div>
+					<div class="input-group">
+					  <input class="btn btn-success" type="submit" value="Submit">
+					</div>
+				</div>
+			</form>
+		</div>
+		<div id="Invoice" class="row">
 			<div class="col-xs-12">
-				<div class="row">
-					<div class="col-xs-8 col-xs-offset-2">
-						<h4>Pinank Chemicals</h4>
-						<small>
-							<b>Mfg. Ecofriendly & Speciality Chemicals</b>
-						</small>
-						<p>
-							A-21, Trimurti Enclave,
-							Mamlatdar Wadi, 
-							Malad (West), Mumbai - 400064.
-							Email: pinankchem2005@yahoo.com
-							Tel: 022 2882 8970
-							Mobile: 0922 347 6328
-							Fax: 28828970
+				<div class="row" style="border: solid black 1px; border-radius: 8px">
+					<div class="col-xs-10 col-xs-offset-1 text-center">
+						<h2>Pinank Chemicals</h2>
+						<h4>Mfg. Ecofriendly & Speciality Chemicals</h4>
+						<hr>
+						<p class="text-left">
+							A-21, Trimurti Enclave, 
+							Mamlatdar Wadi, Malad (West), 
+							Mumbai - 400064. Maharashtra - 27. <br>
+							<u>Email <i class="fa fa-envelope" aria-hidden="true"></i></u>
+							: pinankchem2005@yahoo.com <br>
+							<u>Tel <i class="fa fa-phone" aria-hidden="true"></i></u>
+							: 2882 8970 <br>
+							<u>Mobile <i class="fa fa-mobile" aria-hidden="true"></i></u>
+							: 0922 347 6328 <br>
+							<u>Fax <i class="fa fa-fax" aria-hidden="true"></i></u>
+							: 2882 8970 <br>
 						</p>
 					</div>
-
 				</div>
 			</div>
-			<div class="col-xs-12"></div>
-			<div class="col-xs-12"></div>	
+			<div class="col-xs-12">
+				<h4 class="text-center">TAX INVOICE</h4>
+				
+			</div>
+			<div class="col-xs-12">
+				<div class="row">
+					<div id="InvoiceDetailsTab1" class="col-xs-6" style="border: solid black 1px; border-top-left-radius: 8px;">
+						<div class="row">
+							<div class="col-xs-3">Tax Inv No:</div>
+							<div class="col-xs-3"></div>
+							<div class="col-xs-2 text-right">Date:</div>
+							<div class="col-xs-4"></div>
+						</div>
+						<div class="row">
+							<div class="col-xs-3">Order No. :</div>
+							<div class="col-xs-9"></div>
+						</div>
+						<div class="row">
+							<div class="col-xs-3">Order Date:</div>
+							<div class="col-xs-9"></div>
+						</div>
+						<div class="row">
+							<div class="col-xs-3">Payment Term:</div>
+							<div class="col-xs-3">
+								<p>45 Days</p>
+							</div>
+							<div class="col-xs-2 text-right">Due On:</div>
+							<div class="col-xs-4">
+								<p id="dueDate"></p>
+							</div>
+						</div>
+					</div>
+					<div id="InvoiceDetailsTab2" class="col-xs-6" style="border: solid black 1px; border-top-right-radius: 8px;">
+						<div class="row">
+							<div class="col-xs-3">Transporter:</div>
+							<div class="col-xs-9"></div>
+						</div>
+						<div class="row">
+							<div class="col-xs-3">L.R. No. :</div>
+							<div class="col-xs-3"></div>
+							<div class="col-xs-2 text-right">Date:</div>
+							<div class="col-xs-4"></div>
+						</div>
+						<div class="row">
+							<div class="col-xs-3">Vehicle No. :</div>
+							<div class="col-xs-3"></div>
+							<div class="col-xs-2 text-right">Date:</div>
+							<div class="col-xs-4"></div>
+						</div>
+						<div class="row">
+							<div class="col-xs-3">Place of Supply:</div>
+							<div class="col-xs-3"></div>
+							<div class="col-xs-2 text-right">Time:</div>
+							<div class="col-xs-4"></div>
+						</div>
+					</div>
+					<div id="InvoiceDetailsTab3" class="col-xs-6" style="border: solid black 1px; border-bottom-left-radius: 8px;">
+						<h4>Billed To:</h4>
+						<table class="table table-condensed">
+							<tr>
+								<td>Company Name:</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Address Line 1:</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Address Line 2:</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Address Line 3:</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>City:</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>State:</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>GSTIN:</td>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+					<div id="InvoiceDetailsTab4" class="col-xs-6" style="border: solid black 1px; border-bottom-right-radius: 8px;">
+						<h4>Shipped To:</h4>
+						<table class="table">
+							<tr>
+								<td>Address Line 1:</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Address Line 2:</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Address Line 3:</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>City:</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>State:</td>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<table class="row table table-stripped table-bordered">
+					<thead>
+						<tr>
+							<th>Sr No.</th>
+							<th>DESCRIPTION</th>
+							<th>HSN/SAC CODE</th>
+							<th>QUANTITY</th>
+							<th>RATE</th>
+							<th>UNIT</th>
+							<th>AMOUNT</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td id="amount1"></td>
+					</tbody>
+				</table>
+				<div class="row">
+					<div class="col-xs-6 text-center" style="border: solid black 1px; height: 45px; border-top-left-radius: 8px;">
+						<p>Certified that the particulars given above are true and correct</p>
+					</div>
+					<div class="col-xs-6 text-center" style="border: solid black 1px; height: 45px; border-top-right-radius: 8px;">
+						<p>Electronic Reference Number</p>
+					</div>
+					<div class="col-xs-6" style="border: solid black 1px; height: 45px"></div>
+					<div class="col-xs-6" style="border: solid black 1px; height: 45px"></div>
+					<div id="TCSection1" class="col-xs-6" style="border: solid black 1px; border-bottom-left-radius: 8px;">
+						<h4>Terms & Conditions for Sale</h4>
+						<ol>
+							<li>Goods once sold will not be taken back.</li>
+							<li>Interest at the rate of 24% will be charged if not paid within 30 days.</li>
+							<li>All our transaction and bill are subject to Mumbai Jurisdiction.</li>
+						</ol>
+					</div>
+					<div id="TCSection2" class="col-xs-6" style="border: solid black 1px; border-bottom-right-radius: 8px;">
+						<h4>
+							For Pinank Chemicals
+						</h4>
+						<div style="height: 70px;"></div>
+						<h4>Ketan H. Dagli</h4>
+						<h4>Proprietor</h4>
+					</div>
+				</div>
+			</div>	
 		</div>
 		
 	</div>
